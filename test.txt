@@ -1,0 +1,27 @@
+import requests
+import re
+
+url='http://www.521609.com/meinvxiaohua/list12%s.html'
+for i in range(1,2):
+    temp=url % i
+    response=requests.get(temp)
+    html=response.text
+    # /uploads/allimg/171108/1-1G10QT152-lp.jpg
+    # /uploads/allimg/171030/1-1G030194Q7-lp.jpg
+    img_urls=re.findall(r'/uploads/allimg/.*?\.jpg',html)
+
+    for img_url in img_urls:
+        img_response=requests.get('http://www.521609.com%s' % img_url)
+        img_data=img_response.content
+        beauty=img_url.split('/')[-1]
+        print(beauty)
+        #with open(beauty,'wb') as f:
+         #   f.write(img_data)
+
+		 
+方法2
+url='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2240360399,3225872757&fm=27&gp=0.jpg'
+respone=request.urlopen(url)
+#print(respone.read())
+f=open('1.jpg','wb')
+f.write(respone.read())
