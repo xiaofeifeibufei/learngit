@@ -6,3 +6,4 @@ Git is free software.
 19点
 20点
 5.15
+Creating a new branch is quick AND simple.
